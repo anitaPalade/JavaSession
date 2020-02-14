@@ -1,0 +1,63 @@
+OBJECT CLASS-----------------
+
+1. Parent of all classes even the CLASS class.
+	Every class is derived from OBJECT CLASS either Directly or indirectly
+
+OBJECT CLASS HAS FOLLOWING METHODS THAT ARE BY DEFUALT AVAILABLE TO THE OTHER OBJECTS
+
+FINAL METHODS : public final Class getClass()
+		public final void notify()	
+		public final void notifyAll()
+		public final void wait(long timeout)throws InterruptedException	
+		public final void wait(long timeout,int nanos)throws InterruptedException
+		public final void wait()throws InterruptedException	
+
+
+METHODS TO BE OVERRIDDEN: 
+1. public int hashCode() => RETURNS a unique code for every object, make sure to when overridding unique codes are generated -> Used during map creation, HASHCODES can be supplied as unique keys in map.
+
+2. public boolean equals(Object obj) => Return True or false can be overridden, compares all values and not just object refrences.
+
+3. protected Object clone() throws CloneNotSupportedException => Returns an Object with similar to another object. Depends on type of implementation SHALLOW or DEEP.
+	This should always be used Cloneable interface and super.clone should be used to recieve the cloned object reference.
+
+4. public String toString() => returns a string. Mostly used with objects to return object identity in string format.  
+				return getClass().getName() + "@" + Integer.toHexString(hashCode());
+				Can also be used to throw custom Exception by overriding the return statement.
+	
+5. protected void finalize()throws Throwable //is invoked by the garbage collector before object is being garbage collected.
+
+
+
+OBJECT CLONING----------------------
+
+An Object contains multiple object inside it. STUDENT contains int roll, String name objects.
+When we write Student S1 = Student S2, S2 points to the same memory location as S1.
+
+2.1 SHALLOW COPY
+
+When we shallow, all the fields of the source object is copied to target object as it is(same value). That means, if there is a dynamically created field in the source object, shallow copy will copy the same pointer to target object. So you will have two objects with fields that are pointing to same memory location which is not what you usually want.
+
+Shallow copying is creating a new object and then copying the non static fields of the current object to the new object. If the field is a value type, a bit by bit copy of the field is performed. If the field is a reference type, the reference is copied but the referred object is not, therefore the original object and its clone refer to the same object. A shallow copy of an object is a new object whose instance variables are identical to the old object.
+The situations like , if you have an object with values and you want to create a copy of that object in another variable from same type, then you can use shallow copy, all property values which are of value types will be copied, but if you have a property which is of reference type then this instance will not be copied, instead you will have a reference to that instance only.
+
+ A shallow copy can be made by simply copying the reference.
+	
+
+2.2 Deep Copy
+
+In case of deep copy, instead of copying the pointer, the object itself is copied to target. In this case if you modify the target object, it will not affect the source. By default copy constructors and assignment operators do shallow copy. To make it as deep copy, you need to create a custom copy constructor and override assignment operator.
+
+Deep copy is creating a new object and then copying the non-static fields of the current object to the new object. If a field is a value type, a bit by bit copy of the field is performed. If a field is a reference type, a new copy of the referred object is performed. A deep copy of an object is a new object with entirely new instance variables, it does not share objects with the old.
+
+
+Student s1, s2;
+s2 = s1;
+
+
+
+operation(Object ob)
+
+
+
+--------------TRY WITH RESOURCE-----------------

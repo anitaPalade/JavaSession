@@ -1,0 +1,135 @@
+Thread-> Multihreading
+
+A thread is a lightweight sub-process, the smallest unit of processing. It is a separate path of execution. Threads are independent. If there occurs exception in one thread, it doesn't affect other threads. It uses a shared memory area.
+
+--------------LIFE-CYCLE OF THREAD-------------------
+
+The life cycle of the thread in java is controlled by JVM. The java thread states are as follows:
+
+1. New  [The thread is in new state if you create an instance of Thread class but before the invocation of start() method.]
+    |
+    |   void start()
+    |	
+2. Runnable--------------------  void notify(), void notifyAll() 
+    |			      |
+    |			      |	
+    |		     4.	Non-Runnable (Blocked)
+    |		              |
+    |	                      |
+3. Running---------------------  void sleep(), void wait()
+    |	(exceution is complete)
+    |		OR
+    |	     void stop()
+5. Terminated
+
+NEW : [The thread is in new state if you create an instance of Thread class but before the invocation of start() method.]
+
+RUNNABLE: [The thread is in runnable state after invocation of start() method, but the thread scheduler has not selected it to be the running thread.]
+
+RUNNING : The thread is in running state if the thread scheduler has selected it.
+
+NON-RUNNABLE : This is the state when the thread is still alive, but is currently not eligible to run.
+
+TERMINATED : A thread is in terminated or dead state when its run() method exits.
+
+--------------------CREATING THREADS-----------------------
+
+There are two ways to create a thread:
+
+1. By extending Thread class ==> Thread class extends Object class and implements Runnable interface.
+
+2. By implementing Runnable interface.
+
+
+WHICH IS BETTER TO USE?
+
+==>  In the Runnable interface approach, only one instance of a class is being created and it has been shared by different threads. So the value of counter is incremented for each and every thread access.
+
+Whereas, Thread class approach, you must have to create separate instance for every thread access. Hence different memory is allocated for every class instances and each has separate counter, the value remains same, which means no increment will happen because none of the object reference is same.
+
+DIFFERENCE---------------
+
+When you extends Thread class, after that you can’t extend any other class which you required. (As you know, Java does not allow inheriting more than one class).
+
+When you implements Runnable, you can save a space for your class to extend any other class in future or now.
+
+When you extends Thread class, each of your thread creates unique object and associate with it.
+
+When you implements Runnable, it shares the same object to multiple threads.
+
+------------------------THREAD SCHEDULAR--------------------------------
+
+Thread scheduler in java is the part of the JVM that decides which thread should run.
+
+There is no guarantee that which runnable thread will be chosen to run by the thread scheduler.
+
+Only one thread at a time can run in a single process.
+
+The thread scheduler mainly uses preemptive or time slicing scheduling to schedule the threads.		
+
+---------Sleep method in java---------------
+The sleep() method of Thread class is used to sleep a thread for the specified amount of time.
+
+
+--------JOIN method in java-------------------
+
+Join is like overridding the behaviour of thread schedular, deciding the sequence of thread execution from our end.
+
+-----------------THREAD PRIORITY------------------
+
+Priorities are represented by a number between 1 and 10. 
+In most cases, thread schedular schedules the threads according to their priority (known as preemptive scheduling). 
+But it is not guaranteed because it depends on JVM specification that which scheduling it chooses
+
+
+
+--------------DAEMON THREADS-----------------------
+Daemon thread in java is a service provider thread that provides services to the user thread.
+
+GarbageCollector is daemon thread,finalizer.
+
+
+---------------SHUTDOWN HOOK-----------------------
+
+Shutdown hook bole to jvm shutdown hone se pehle k kuchh important kaam karne wali thread. Game me score save karna raha, ya object ka state.\
+
+
+
+WAIT vs SLEEP
+
+Sleep delays execution
+Wait stops execution until notify or notifyall is recieved
+
+
+wait()-It tells the calling thread to give up the lock and go to sleep until some other thread enters the same monitor and calls notify().
+notify()-It wakes up one single thread that called wait() on the same object. It should be noted that calling notify() does not actually give up a lock on a resource.
+notifyAll()-It wakes up all the threads that called wait() on the same object
+
+
+
+
+--------------------------NOTIFY WAIT EXAMPLE--------------------------------------
+
+As monstrous as it seems, it really is a piece of cake if you go through it twice.
+
+In the main class a new PC object is created.
+It runs produce and consume methods of PC object using two different threads namely t1 and t2 and wait for these threads to finish.
+Lets understand how our produce and consume method works.
+
+First of all, use of synchronized block ensures that only one thread at a time runs. 
+Also since there is a sleep method just at the beginning of consume loop, the produce thread gets a kickstart.
+When the wait is called in produce method, it does two things. 
+  Firstly it releases the lock it holds on PC object. 
+  Secondly it makes the produce thread to go on a waiting state until all other   threads have terminated, that is it can again acquire a lock on PC object and   some   other method wakes it up by invoking notify or notifyAll on the same object.
+
+Therefore we see that as soon as wait is called, the control transfers to consume thread and it prints -“Waiting for return key”.
+
+After we press the return key, consume method invokes notify(). 
+It also does 2 things- 
+ Firstly, unlike wait(), it does not releases the lock on  shared resource therefore for getting the desired result, it is advised to use  notify only at the end of  your method. 
+ Secondly, it notifies the waiting threads that now they can wake up but only after the current method terminates.
+As you might have observed that even after notifying, the control does not immediately passes over to the produce thread. The reason for it being that we have called Thread.sleep() after notify(). 
+As we already know that the consume thread is holding a lock on PC object, another thread cannot access it until it has released the lock.
+ Hence only after the consume thread finishes its sleep time and thereafter terminates by itself, the produce thread cannot take back the control.
+After a 2 second pause, the program terminates to its completion.
+		
