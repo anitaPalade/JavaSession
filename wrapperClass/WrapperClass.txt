@@ -1,0 +1,346 @@
+------------------------------------------------Wrapper Classes in Java----------------------------------------------------------------------------
+
+Wrapper Classes in Java - A Wrapper class is a class which contains the primitive data types (int, char, short, byte, etc). 
+                          In other words, wrapper classes provide a way to use primitive data types (int, char, short, byte, etc) as objects. 
+						  These wrapper classes come under java.util package.
+						  Wrapper classes are immutable.
+
+Need of Wrapper Classes - 
+ 1)They convert primitive data types into objects. Objects are needed if we wish to modify the arguments passed into a method 
+  (because primitive types are passed by value).
+ 2)The classes in java.util package handles only objects and hence wrapper classes help in this case also.
+ 3)Data structures in the Collection framework, such as ArrayList and Vector, store only objects (reference types) and not primitive types.
+ 4)An object is needed to support synchronization in multithreading.					
+
+ 1)Change the value in Method: Java supports only call by value. So, if we pass a primitive value, it will not change the original value. 
+							   But, if we convert the primitive value in an object, it will change the original value.
+ 2)Serialization: We need to convert the objects into streams to perform the serialization. If we have a primitive value, we can convert it in objects 
+                  through the wrapper classes.
+ 3)Synchronization: Java synchronization works with objects in Multithreading.
+ 4)java.util package: The java.util package provides the utility classes to deal with objects.
+ 5)Collection Framework: Java collection framework works with objects only. All classes of the collection framework (ArrayList, LinkedList, Vector, HashSet,
+                        LinkedHashSet, TreeSet, PriorityQueue, ArrayDeque, etc.) deal with objects only.
+
+The eight classes of the java.lang package are known as wrapper classes in Java. The list of eight wrapper classes are given below:
+
+	Primitive Type	Wrapper class
+		boolean 	Boolean
+		char     	Character
+		byte	    Byte
+	    short	    Short
+		int	        Integer
+		long 	    Long
+		float	    Float
+		double	    Double
+
+ 
+ 
+ Autoboxing and Unboxing - 
+  Autoboxing: Automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. 
+  For example – conversion of int to Integer, long to Long, double to Double etc.
+  
+  Unboxing: Unboxing is used to convert the Wrapper class object into corresponding primitive data types
+  
+----------boolean class methods-----------------------------------------------------------------------------------------
+  Methods	Description
+  booleanValue()-Returns a Boolean primitive for the value of this Boolean object.
+  compare()-Compares two Boolean values.
+  compareTo()-Compares this Boolean instance with another.
+  equals()-Returns a Boolean value true if the argument is a Boolean object that represents the same value as this object.
+  getBoolean()-Returns a Boolean value true if the system property name is equal to the string "true".
+  hashCode()-Returns a hash code for the Boolean object.
+  logicalAnd()-Returns the result of implementing logical AND operation on the assigned boolean operands.
+  logicalOr()-Returns the result of implementing logical OR operation on the assigned boolean operands.
+  logicalXor()-Returns the result of implementing logical XOR operation on the assigned boolean operands.
+  parseBoolean()-Parses the string argument as a Boolean.
+  toString()-Returns a String instance representing the specified Boolean's value or the specified boolean.
+  valueOf()-Returns a Boolean instance representing the specified Boolean value or string value.
+ 
+----------Character class methods----------------------------------------------------------------------------------------- 
+ Method	Description
+ charCount(int codePoint)	Determines the number of char values which are required to represent the given character.
+ charValue()	Returns the value of the given Character object.
+ codePointAt(char[]a, int index)	Returns the codePoint for the specified index of the given array.
+ codePointAt(char[]a, int index, int limit )	Returns the codePoint of the char array at the specified index where only the elements of the array with the index less than the specified limit being used.
+ codePointAt(CharSequence seq, int index)	Returns the codePoint at the specified index for the given CharSequence.
+ codePointBefore(char[]a, int index)	Returns the codePoint for the given array in the preceding index.
+ codePointBefore(char[]a, int index, int start)	Returns the codePoint for the given array in the preceding index where only the elements of the array with index greater than or equal to start are used.
+ codePointBefore(CharSequence, int index)	Returns the CodePoint for the given CharSequence int the preceding index.
+ codePointCount(char[]a, int offset, int count)	Returns the total number of Unicode codePoints in the given subarray of the char array argument.
+ codePointCount(CharSequence seq, int beginIndex, int endIndex)	Returns the number of Unicode codePoints provided in the given text range for the specified char sequence.
+ codePointOf(String name)	Returns the value of the codePoint for the given Unicode character specified by a particular character name.
+ compare(char x, char y)	Compares two character type values numerically.
+ compareTo(Character anotherCharacter)	Compares two Character type objects numerically.
+ digit(char ch, int radix)	Returns the numeric value for the given character in the specified index.
+ digit(int codePoint, int radix)	Returns the numeric value for the given character in the specified radix.
+ equals(object obj)	Compares the given object with the specified object.
+ forDigit(int digit, int radix)	Determines the presentation of the character for a particular digit in the given radix.
+ getDirectionality(char ch)	Returns the Unicode directionality property for the specified character.
+ getDirectionality(int codePoint)	Returns the Unicode directionality property for the specified codePoint.
+ getName(int codePoint)	Returns the Unicode name for the given codePoint or may return null if the codePoint is not assigned.
+ getNumericValue(char ch)	Returns the integer type value of the specified Unicode character.
+ getNumericValue(int codePoint)	Returns the integer type value of the specified Unicode codePoint.
+ getType(char ch)	Returns the value which indicates the general category of the character.
+ getType(int codePoint)	Returns the value which indicates the general category of the character.
+ hashcode()	Returns the hash code for the specified character. This method is equal to the result of invoking the charValue() method.
+ hashcode(char value)	Returns the hash code for a particular char value.
+ highSurrogate(int codePoint)	Returns the leading surrogate codePoint of a particular surrogate pair which represents the supplementary character in the UTF-16 encoding.
+ isAlphabetic(int codePoint)	Determines whether the given character is an alphabet or not.
+ isBmpCodePoint(int codePoint)	Determines whether the given character is in the Basic Multilingual Plane or not.
+ isDefined(char ch)	Determines whether the character is defined in the Unicode or not.
+ isDefined(int codePoint)	Determines whether the character(Unicode code point) is defined in the Unicode or not.
+ isDigit(char ch)	Determines whether the given character is a digit or not.
+ isDigit(int codePoint)	Determines whether the given character(Unicode code point) is a digit or not.
+ isHighSurrogate(char ch)	Determines whether the given char values is a Unicode high-surrogate code point or not.
+ isIndentifierIgnorable(char ch)	Determines whether the given character is considered to be an ignorable character in the Java identifier or not.
+ isIndentifierIgnorable(int codePoint)	Determines whether the given character(Unicode codePoint) is considered to be an ignorable character in the Java identifier or not.
+ isIdeographic(int codePoint)	Determines whether the specified character is a CJKV(Chinese, Japanese, Korean and Vietnamese) ideograph or not.
+ isISOControl(char ch)	Determines whether the given character is an ISO Control character or not.
+ isISOControl(int codePoint)	Determines whether the given character(Unicode code point) is an ISO Control character or not.
+ isJavaIdentifierPart(char ch)	Determines whether the given character is a part of the Java identifier other than the first character or not.
+ isJavaIdentifierPart(int codePoint)	Determines whether the given character(Unicode code point) is a part of the Java identifier other than the first character or not.
+ isJavaIdentifierStart(char ch)	Determines whether the given character is permissible as the first character in the Java identifier or not.
+ isJavaIdentifierStart(int codePoint)	Determines whether the given character(Unicode code point is permissible as the first character in the Java identifier or not.
+ isJavaLetter(char ch)	Replaced by the isJavaIdentifierStart(char).
+ isJavaLetterOrDigit(int codePoint)	Replaced by the isJavaIdentifierPart(char).
+ isLetter(char ch)	Determines whether the specified character is a letter or not. 
+ isLetter(int codePoint)	Determines whether the specified character(Unicode code point) is a letter or not.
+ isLetterOrDigit(char ch)	Determines whether the specified character is a letter or digit or not.
+ isLetterOrDigit(int codePoint)	Determines whether the specified character(Unicode code point) is a letter or digit or not.
+ isLowerCase(char ch)	Determines whether the specified character is a lowercase character or not.
+ isLowerCase(int codePoint)	Determines whether the specifed character(Unicode code point) is a lowercase character or not.
+ isLowSurrogate(char ch)	Determines whether the given char value is a Unicode low-surrogate code unit or not.
+ isMirrored(char ch)	Determines whether the character is mirrored or not.
+ isMirrored(int codePoint)	Determines whether the character(Unicode code point) is mirrored or not.
+ isSpace(char ch)	Replaced by isWhiteSpace(char ch) method.
+ isSpaceChar(char ch)	Determines whether the specified character is a Unicode space character or not.
+ isSupplementaryCodePoint(int codePoint)	Determines whether the given character(Unicode code point) is in the range of supplementary characters or not.
+ isSurrogate(char ch)	Determines whether the given char value is a Unicode surrogate code unit.
+ isSurrogatePair(char high, char low)	Determines whether the given pair of char value is a valid Unicode surrogate pair or not.
+ isTitleCase(char ch)	Determines whether the given character is a titlecase character or not.
+ isTitleCase(int codePoint)	Determines whether the given character(Unicode code point) is a titlecase character or not.
+ isUnicodeIdentifierPart(char ch)	Determines whether the given character is a part of Unicode identifier or not.
+ isUnicodeIdentifierPart(int codePoint)	Determines whether the given character(unicofde code point) is a part of Unicode identifier or not.
+ isUnicodeIdentifierStart(char ch)	Determines whether the given character is permissible as the first character in the Unicode identifier or not.
+ isUnicodeIdentifierStart(int codePoint)	Determines whether the given character(Unicode code point) is permissible as the first character in the Unicode identifier or not.
+ isUpperCase(char ch)	Determines whether the given character is an uppercase character or not.
+ isUpperCase(int codePoint)	Determines whether the given character(Unicode code point) is an uppercase character or not.
+  isValidCodePoint(int codePoint)	Determines whether the given character is a valid Unicode code point value or not.
+ isWhitespace(char ch)	Determines whether the given character is a white space or not.
+ isWhitespace(int codePoint)	Determines whether the given character(Unicode code point)is a white space or not .
+ lowSurrogate(int codePoint)	Returns the low surrogate code unit(i.e trailing surrogate)of the surrogate pair which represents the supplementary character in the UTF-16 encoding.
+ offsetByCodePoints(char[]a, int start, int count, int index, int codePointOffset)	Returns the index for the given char subarray which is the offset from the given index by the codePointOffset code points.
+ offsetByCodePoints(CharSequence seq, int index, int codePointOffset)	Returns the index for the given char subarray which is the offset from the given index by the codePointOffset code points.
+ reverseBytes(char ch)	Returns the value obtained by reversing the order of the given bytes in the specified char values.
+ toChars(int codePoint)	Converts the specified character(Unicode code point) into its UTF-16 representation which is stored in a char array.
+ toChars(int codePoint, char[] dst, int dstIndex)	Converts the specified character(Unicode code point) into its UTF-16 representation.
+ toCodePoint(char high, char low)	Converts the given surrogate pair to its corresponding supplementary code point value.
+ toLowerCase(char ch)	Converts the character type argument to lowercase using case mapping information obtained from the Unicode Data file.
+ toLowerCase(int codePoint)	Converts the character type argument(Unicode code point) to lowercase using case mapping information obtained from the Unicode Data file.
+ toString()	Returns a String type object which represents the value of the character.
+ toString(char ch)	Returns a String type object which represents the specified character
+ toTitleCase(char ch)	Converts the character type argument to titlecase using case mapping information obtained from the Unicode Data file.
+ toTitleCase(int codePoint)	Converts the character type argument(Unicode code point) to lowercase using case mapping information obtained from the Unicode Data file.
+ toUpperCase(char ch)	Converts the character type argument to uppercase using case mapping information obtained from the Unicode Data file. 
+ toUpperCase(int codePoint)	Converts the character type argument(Unicode code point) to uppercase using case mapping information obtained from the Unicode Data file.
+ valueOf(char c)	Returns the instance of a Character which represents the specified character value.
+  
+  
+----------Byte class methods----------------------------------------------------------------------------------------- 
+Methods	Description
+byteValue()	It returns the value of this Byte as a byte
+compare()	It compares the two specified byte values
+compareTo()	It compares two Byte objects numerically
+compareUnsigned()	It compares the two unsigned byte values
+decode()	It is used to decode a String into a Byte
+doubleValue()	It returns a double value for this Byte object
+equals()	It is used to compare this object against the specified byte object
+floatValue()	It returns the value of this Byte as a Float
+hashCode()	It returns a hash code for this Byte object
+intValue()	It returns an int value for this Byte object
+longValue()	It returns a long value for this Byte object
+parseByte()	It is used to parse the string argument as a signed decimal byte.
+shortValue()	It returns a short value for this Byte object
+toString()	It returns a string representation of the Byte object
+toUnsignedInt()	It is used to convert the specified byte to an int by an unsigned conversion
+toUnsignedLong()	It is used to convert the specified byte to a long by an unsigned conversion
+valueOf()	Returns a Byte instance representing the specified byte or string value.  
+  
+  
+----------Short class methods----------------------------------------------------------------------------------------- 
+Methods	Description
+byteValue()	It returns the value of this Short as a short
+compare()	It compares the two specified short values
+compareTo()	It compares two Short objects numerically
+compareUnsigned()	It compares the two unsigned short values
+decode()	It is used to decode a String into a Short
+doubleValue()	It returns a double value for this Short object
+equals()	It is used to compare this object against the specified short object
+floatValue()	It returns the value of this Short as a Float
+hashCode()	It returns a hash code for this Short object
+intValue()	It returns an int value for this Short object
+longValue()	It returns a long value for this Short object
+parseShort()	It is used to parse the string argument as a signed decimal short.
+reverseBytes()	It returns the value fetched by reversing the order of the bytes in 2's complement representation of the given short value.
+shortValue()	It returns a short value for this Short object
+toString()	This method returns a string representation for the Short's object
+toUnsignedInt()	It is used to convert the specified short to an int by an unsigned conversion
+toUnsignedLong()	It is used to convert the specified short to a long by an unsigned conversion
+valueOf()	Returns a Short instance representing the specified short or string value.
+  
+  
+----------Integer class methods----------------------------------------------------------------------------------------- 
+SN	Modifier & Type	Method	Discription
+1)	static int	bitCount()	It returns the number of 1-bits in the 2's complement binary representation of the specified int value.
+2)	byte	byteValue()	It converts the given number into a primitive byte type and returns the value of integer object as byte.
+3)	Static int	compare()	It compares two int values numerically and returns the result in integer equivalent.
+4)	Int	compareTo()	It compares two integer objects numerically and returns the result as -1, 0 or 1.
+5)	static int	compareUnsigned()	It compares two integer objects numerically treating the values as unsigned and returns the result as -1, 0 or 1.
+6)	static Integer	decode()	It decodes a String object into an Integer value.
+7)	static int	divideUnsigned()	It returns the unsigned quotient of dividing the first argument by the second argument where each argument and the result is interpreted as an unsigned value.
+8)	double	doubleValue()	It converts the given Integer value and returns the result as a double equivalent.
+9)	boolean	equals()	It compares the value of the parameter to the value of the current Integer object and returns boolean ( True or False ).
+10)	float	floatValue()	It converts the given Integer value and returns the result as a float equivalent.
+11)	Static Integer	getInteger()	It determines the integer value of the system property with the specified name.
+12)	static int	hashCode()	It returns a hash code for the given Integer.
+13)	static int	highestOneBit()	It returns int value with at most a single one-bit, in the position of the highest-order ("leftmost") one-bit in the specified int value.
+14)	static int	lowestOneBit()	It eturns int value with at most a single one-bit, in the position of the lowest-order ("rightmost") one-bit in the specified int value.
+15)	static int	max()	It returns the maximum value amongst the two method argument.
+16)	static int	min()	It returns the minimum value amongst the two method argument.
+17)	int	intValue()	It returns the value of the specified number as an int.
+18)	long	longValue()	It returns the value of the specified long object as long equivalent.
+19)	static int	numberOfLeadingZeros()	It returns the total number of zero bits preceding the highest-order ("leftmost") one-bit in the 2's complement binary representation of the specified int value.
+20)	static int	numberOfTrailingZeros()	It returns the total number of zero bits following the lowest-order ("rightmost") one-bit in the 2's complement binary representation of the specified int value.
+21)	static int	parseInt()	It parses the String argument as a signed decimal Integer object.
+22)	static int	parseUnsignedInt()	It parses the String argument as an unsigned decimal Integer object.
+23)	static int	remainderUnsigned()	It returns the unsigned remainder from dividing the first argument by the second argument where each argument and the result is interpreted as an unsigned value.
+24)	static int	reverse()	It returns the value obtained by reversing the order of the bits in the 2's complement binary representation of the specified int value.
+25)	static int	reverseBytes()	It returns the value obtained by reversing the order of the bytes in the 2's complement binary representation of the specified int value.
+26)	static int	rotateLeft()	It returns the value obtained by rotating the 2's complement binary representation of the specified int value left by the specified number of bits.
+27)	static int	rotateRight()	It returns the value obtained by rotating the 2's complement binary representation of the specified int value right by the specified number of bits.
+28)	short	shortValue()	It returns the value of this Integer as a short type after a primitive conversion.
+29)	static int	signum()	It returns the signum function of the specified int value.
+30)	static int	sum()	It returns the sum by adding two integers together as per the + operator.
+31)	static String	toBinaryString()	It returns a string representation of the integer argument as an unsigned integer in binary base 2.
+32)	static String	toHexString()	It returns a string representation of the integer argument as an unsigned integer in binary base 16.
+33)	static String	toOctalString()	It returns a string representation of the integer argument as an unsigned integer in binary base 8.
+34)	String	toString()	It returns a String object representing the value of the Number Object.
+35)	static String	toUnsignedString()	It converts the argument to a long by an unsigned conversion.
+36)	static long	toUnsignedLong()	It returns a string representation of the argument as an unsigned decimal value.
+37)	static Integer	valueOf()	It returns the relevant Integer Object holding the value of the argument passed.  
+  
+----------Float class methods-----------------------------------------------------------------------------------------   
+ Methods	Description
+byteValue()	Returns the value of this float as a byte
+compare()	Compares the two specified float values
+compareTo()	Compares two float objects numerically
+doubleValue()	Returns a double value for this Float object
+equals()	Compares the object against the specified object
+floatToIntBits()	Returns a representation of floating-point value according to IEEE floating-point "single format " bit layout
+floatToRawIntBits()	Returns a representation of floating-point value according to IEEE floating-point "single format" bit layout preserving NaN values.
+floatValue()	Returns the float value of this Float object
+hashCode()	Returns a hash code for this Float object
+intBitsToFloat()	Returns the float value for the given bit representation
+intValue()	Returns an int value for this Float object
+isFinite()	Returns a Boolean value 'true', if the argument is a finite floating-point value
+isInfinite()	Returns a Boolean value 'true', if this float value or the specified number is infinitely large in magnitude
+isNan()	Returns a Boolean value 'true', if the specified number is NaN(Not a Nan) value.
+longValue()	Returns a long value for this float object
+max()	Returns the greatest of two float values and gives the same result as by calling Math.max
+min()	Returns the smallest of two float values
+parseFloat()	Returns a new float initialized to the value of the specified String
+shortValue()	Returns a short value for this Float object
+sum()	Adds the two float values together
+toHexString()	Returns a hexadecimal string representation of the float argument.
+toString()	Returns a string representation of the Float object
+valueOf()	Returns a Float instance representing the specified float or string value.
+  
+----------Long class methods----------------------------------------------------------------------------------------- 
+  Methods	Description
+bitCount(long i)	It returns the number of one bits in two?s compliment binary representation.
+byteValue()	It returns the value of Long as a byte after the conversion.
+compare(long x, long y)	It compares the two long values.
+compareTo(long another long)	It compares two long objects numerically.
+compareUnsigned(long x, long y)	It compares the two long values keeping the values unsigned.
+decode(String nm)	It is used to decode a string into Long.
+divideUnsigned(long dividend, long divisor)	It returns the unsigned quotient for dividing the first argument by the second.
+doubleValue()	It returns the value of Long as a double after the conversion.
+equals(Object obj)	It compares the object with the specified object.
+floatValue()	It returns the float type value for the given Long object.
+getLong(String nm)	It determines the long value for the specified name.
+getLong(String nm, Long val)	It returns the long value for the specified name.
+hashCode()	It returns the hash code for the given Long object.
+hashCode(Long value)	It returns the hash code for the given Long value.
+highestOneBit(long i)	It returns a long value with at most one single bit in the highest order.
+intValue()	It returns the value of Long as an int after the conversion.
+longValue()	It returns the value of Long as a long after the conversion.
+lowestOneBit(long i)	It returns a long value with at most one single bit in the lowest order.
+max(long a, long b)	It returns the greater of the two long values.
+min(long a, long b)	It returns the smaller of the two long values.
+numberOfLeadingZeroes(long i)	It returns the total number of zero bytes in the highest order.
+numberOfTrailingZeroes(long i)	It returns the total number of zero bytes in the lowest order.
+parseLong(CharSequence s, int beginIndex, int endIndex, int radix)	It parses the CharSequence arguementwith a specified long in the given index
+parseLong(String s)	It parses the string parameter as a signed decimal long.
+parseLong(String s, int radix)	It parses the string argument as a signed long as given in the radix.
+parseUnsignedLong(CharSequence s, int beginIndex, int ndIndex, int radix)	It parses the given CharSequence argument as an unsigned long in the given radix beginning from beginIndex and ending till endIndex-1.
+parseUnsignedLong(String s)	It parses the given string argument as an unsigned long.
+parseUnsignedLong(String s, int radix)	It parses the given string argument as an unsigned long in the index specified by the second argument.
+remainderUnsigned(long dividend, long divisor)	It returns the unsigned remainder from dividing the first argument with the second argument.
+reverse(long i)	It returns the value obtained by the reversing the given order of bits in 2?s complement binary representation.
+reverseBytes(long i)	It returns the value obtained by the reversing the given order of bits in 2?s complement representation.
+rotateLeft(long i, int distance)	It returns the value obtained by rotating the 2?s complement binary representation of the given long value by left and by the specified number of bits.
+rotateRight(long i, int distance)	It returns the value obtained by rotating the 2?s complement binary representation of the given long value by right and by the specified number of bits.
+shortValue()	It returns the short type value for the given Long object.
+signum(long i)	It returns the signum function for the given long value.
+sum(long a, long b)	It adds two long values as per the + operator.
+toBinaryString(long i)	It returns the string representation for the given long argument as an unsigned argument with base 2.
+toHexString(long i)	It returns the string representation for the given long argument as an unsigned argument with base 16.
+toOctalString(long i)	It returns the string representation for the given long argument as an unsigned argument with base 8.
+toString()	It returns the string which represents the long value.
+toString(long i)	It returns the string which represents the specified long.
+toString(long i, int radix)	It returns the string representation for the first argument which is specified by the second argument.
+toUnsignedString(long i)	It returns the string representation for the argument as an unsigned decimal value.
+toUnsignedString(long i, int radix)	It returns the string representation for the first argument as an unsigned integer value in the radix.
+valueOf(l)	It returns a long instance which represents the specified value.
+valueOf(String s)	It returns a long instance which holds the value of specified string.
+valueOf(String s int radix)	It returns the Long object which holds the value of specified string when parsed with the radix provided by the second argument
+  
+  
+  
+ ----------Double class methods-----------------------------------------------------------------------------------------  
+  
+ Methods	Description
+byteValue()	It returns the value of Double as a byte after the conversion.
+compare(double d1, double d2)	It compares the two double values.
+compareTo(Double another Double)	It compares two Double objects numerically.
+DoubleToLongBits(double value)	It returns the representation of the floating point value provided by IEEE 754 "double format" bit layout.
+doubleToRawLongBits(double value)	It returns the representation of the floating point value provided by IEEE 754 "double format" bit layout.
+doubleValue()	It returns the value of Double as a double after the conversion.
+equals(Object obj)	It compares the object with the specified object.
+floatValue()	It returns the float type value for the given Double object.
+hashCode()	It returns the hash code for the given Double object.
+hashCode(Double value)	It returns the hash code for the given Double value.
+intValue()	It returns the value of Double as an int after the conversion.
+isFinite(double d)	It returns true if the argument is finite floating point. Otherwise, returns false.
+isInfinite()	It returns true if the double value is infinitely large in magnitude. Otherwise, returns false.
+isInfinite(double v)	It returns true if the given number is infinitely large in magnitude. Otherwise, returns false.
+isNaN()	It returns true if the double value is Not a Number value. Otherwise, returns false.
+IsNaN(double v)	It returns true if the specified number is Not a Number value. Otherwise, returns false.
+longBitsToDouble(long bits)	It returns the value of type Double in correspondence to the given bit representation.
+longValue()	It returns the value of Double as a long after the conversion.
+max(double a, double b)	It returns the greater of the two double values.
+min(double a, double b)	It returns the smaller of the two double values.
+parseDouble(String s)	It returns a new double which is initialized by the value provided by the String.
+shortValue()	It returns the value of Double as a short after the conversion.
+sum(double a, double b)	It adds the two values as per the + operator.
+toHexString(double d)	It returns a hexadecimal string represented by the double argument.
+toString()	It returns a string represented by the Double object.
+toString(double d)	It returns a string represented by the double argument.
+valueOf(double d)	It returns the object of Double represented by a double value.
+valueOf(String s)	It returns the object of Double which holds the double value represented by string argument.
+  
+ 
+  
+  
+  
+ 
