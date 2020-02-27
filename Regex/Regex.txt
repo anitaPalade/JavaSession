@@ -1,0 +1,93 @@
+Java Regex:
+			The Java Regex or Regular Expression is an API to define a pattern for searching or manipulating strings.
+
+
+The Matcher and Pattern classes provide the facility of Java regular expression. The java.util.regex package provides following 
+	classes and interfaces for regular expressions.
+
+	1. MatchResult interface
+	2. Matcher class
+	3. Pattern class
+	4. PatternSyntaxException class
+
+Matcher class
+	
+	It implements the MatchResult interface. It is a regex engine which is used to perform match operations on a character sequence.
+
+boolean	find() ---				It is mainly used for searching multiple occurrences of the regular expressions in the text.
+boolean	find(int start) ---		It is used for searching occurrences of the regular expressions in the text starting from the given index.
+int start() ---				It is used for getting the start index of a match that is being found using find() method.
+int	end()	---				It is used for getting the end index of a match that is being found using find() method.
+									It returns index of character next to last matching character.
+									
+int	groupCount() ---		It is used to find the total number of the matched subsequence.
+String group() ---				It is used to find the matched subsequence.
+boolean	matches() ---			It is used to test whether the regular expression matches the pattern.
+
+ 
+Pattern class
+
+	It is the compiled version of a regular expression. It is used to define a pattern for the regex engine.
+
+	compile(String regex) ---					It is used to compile the given regular expression into a pattern.
+	compile(String regex, int flags) --			It is used to compile the given regular expression into a pattern with the given flags.
+	flags()	---									It is used to return this pattern’s match flags.
+	matcher(CharSequence input) ---				It is used to create a matcher that will match the given input against this pattern.
+	matches(String regex, CharSequence input) -	It is used to compile the given regular expression and attempts to match the given input against it.
+	pattern() ---								It is used to return the regular expression from which this pattern was compiled.
+	quote(String s) ---							It is used to return a literal pattern String for the specified String.
+	split(CharSequence input) ---				It is used to split the given input sequence around matches of this pattern.
+	split(CharSequence input, int limit) ---	It is used to split the given input sequence around matches of this pattern.
+	toString()	--- 							It is used to return the string representation of this pattern.
+
+
+ 
+PatternSyntaxException class: 
+	This object of Regex is used to indicate a syntax error in a regular expression pattern and is an unchecked exception.
+	
+
+String ---  	getDescription() ---	It is used to retrieve the description of the error.
+int	--- 		getIndex() ---			It is used to retrieve the error index.
+String ---		getMessage() ---		It is used to return a multi-line string containing the description of the syntax error and its index,
+										the erroneous regular-expression pattern, and a visual indication of the error index within the pattern.
+String ---		getPattern() ---		It is used to retrieve the erroneous regular-expression pattern.
+
+
+Regex Character classes
+
+1	[abc]	 	  ----------	a, b, or c (simple class)
+2	[^abc]	      ----------	Any character except a, b, or c (negation)
+3	[a-zA-Z] 	  ----------	a through z or A through Z, inclusive (range)
+4	[a-d[m-p]]	  ----------    a through d, or m through p: [a-dm-p] (union)
+5	[a-z&&[def]]  ----------	d, e, or f (intersection)
+6	[a-z&&[^bc]]  ---------- 	a through z, except for b and c: [ad-z] (subtraction)
+7	[a-z&&[^m-p]] ----------	a through z, and not m through p: [a-lq-z](subtraction)
+
+
+Regex Quantifiers
+	
+	The quantifiers specify the number of occurrences of a character.
+
+X?		------		X occurs once or not at all
+X+		------		X occurs once or more times
+X*		------		X occurs zero or more times
+X{n}	------		X occurs n times only
+X{n,}	------		X occurs n or more times
+X{y,z}	------		X occurs at least y times but less than z times
+XY					Matches X and Y (X followed by Y).
+X|Y					Matches X or Y.
+
+
+Regex Metacharacters
+	
+	The regular expression metacharacters work as shortcodes.
+
+.	--------	Any character (may or may not match terminator)
+\d	--------	Any digits, short of [0-9]
+\D	--------	Any non-digit, short for [^0-9]
+\s	--------	Any whitespace character, short for [\t\n\x0B\f\r]
+\S	--------	Any non-whitespace character, short for [^\s]
+\w	--------	Any word character, short for [a-zA-Z_0-9]
+\W	--------	Any non-word character, short for [^\w]
+\b	--------	A word boundary
+\B	--------	A non word boundary
