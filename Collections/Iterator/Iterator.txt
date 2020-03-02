@@ -1,0 +1,55 @@
+LIST ITERATOR
+
+ListIterator interface extends Iterator interface. So all three methods of Iterator interface are available for ListIterator. In addition there are six more methods.
+
+// Returns true if the iteration has more elements
+public boolean hasNext();
+
+// same as next() method of Iterator
+public Object next();
+
+// Returns the next element index or list size if the list iterator is at the end of the list
+public int nextIndex();
+
+// Backward direction Returns true if the iteration has more elements while traversing backward
+public boolean hasPrevious();
+
+// Returns the previous element in the iteration and can throws NoSuchElementException if no more element present
+public Object previous();
+
+// Returns the previous element index  or -1 if the list iterator is at the beginning of the list
+public int previousIndex();
+
+// Other Methods
+ 
+// same as remove() method of Iterator
+public void remove();
+
+// Replaces the last element returned by next() or previous() with the specified element 
+public void set(Object obj);
+
+// Inserts the specified element into the list at position before the element that would be returned by next(),
+public void add(Object obj);
+Clearly the three methods that ListIterator inherits from Iterator (hasNext(), next(), and remove()) 
+do exactly the same thing in both interfaces. The hasPrevious() and the previous operations are exact analogues of hasNext() and next().
+The former operations refer to the element before the (implicit) cursor, whereas the latter refer to the element after the cursor. 
+The previous operation moves the cursor backward, whereas next moves it forward.
+
+
+ListIterator has no current element; its cursor position always lies between the element that would be returned by a call to previous()
+and the element that would be returned by a call to next()
+
+set() method can throw four exceptions
+
+UnsupportedOperationException – if the set operation is not supported by this list iterator
+ClassCastException : If the class of the specified element prevents it from being added to this list
+IllegalArgumentException : If some aspect of the specified element prevents it from being added to this list
+IllegalStateException : If neither next nor previous have been called, or remove or add have been called after the last call to next or previous
+
+
+add() method can throw three exceptions
+
+UnsupportedOperationException : If the add method is not supported by this list iterator
+ClassCastException : If the class of the specified element prevents it from being added to this list
+IllegalArgumentException : If some aspect of this element prevents it from being added to this list
+
