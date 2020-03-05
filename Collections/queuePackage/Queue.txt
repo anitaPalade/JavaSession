@@ -1,0 +1,42 @@
+--------QUEUE--------
+The Queue interface is available in java.util package and extends the Collection interface.
+The queue collection is used to hold the elements about to be processed and provides various operations like insertion,removal etc.
+It follow FIFO principle.
+PriorityQueue and LinkedList classes are implemented by queue.
+
+The queue can be categorised into two category:
+1.Blocking Queue:Bounded Queues are queues which are bounded by capacity that means we need to provide the max size of the queue at the time of creation. For example ArrayBlockingQueue 
+2.Non-Blocking Queue:Unbounded Queues are queues which are NOT bounded by capacity that means we should not provide the size of the queue. For example LinkedList 
+
+Methods in Queue:
+
+add()- This method is used to add elements at the tail of queue. More specifically, at the last of linked-list if it is used, or according to the priority in case of priority queue implementation.
+peek()- This method is used to view the head of queue without removing it. It returns Null if the queue is empty.
+element()- This method is similar to peek(). It throws NoSuchElementException when the queue is empty.
+remove()- This method removes and returns the head of the queue. It throws NoSuchElementException when the queue is empty.
+poll()- This method removes and returns the head of the queue. It returns null if the queue is empty.
+size()- This method return the no. of elements in the queue.
+
+remove() and element() throws NoSuchElementException when the queue is empty.
+peek() and poll() returns null if the queue is empty.
+
+--------PRIORITYQUEUE--------
+A PriorityQueue is used when the objects are supposed to be processed based on the priority.The default priority is the natural ordering.
+Java Priority Queue size is unbounded but we can specify the initial capacity at the time of it’s creation.
+When we add elements to the priority queue, it’s capacity grows automatically.
+The minimum item has the highesr priority.
+
+Priority queue is just like a traditional queue with difference that when a high priority elements come to join a queue, it gets added at the head of the queue instead of tail.
+The elements in PriorityQueue must be of Comparable type. String and Wrapper classes are Comparable by default. 
+To add user-defined objects in PriorityQueue, you need to implement Comparable interface. 
+
+
+--------DEQUE--------
+Java Deque Interface is a linear collection that supports element insertion and removal at both ends. Deque is an acronym for "double ended queue".
+The ArrayDeque class provides the facility of using deque and resizable-array. It inherits AbstractCollection class and implements the Deque interface.
+Null elements are not allowed in the ArrayDeque.
+
+
+
+
+

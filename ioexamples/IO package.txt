@@ -1,0 +1,121 @@
+PLEASE FOLLOW THIS LINK FOR BETTER UNDERSTANDING OF IO PACKAGE 
+http://tutorials.jenkov.com/java-io/index.html
+
+Java.io Package in Java
+
+
+This package provides for system input and output through data streams, serialization and the file system. 
+Unless otherwise noted, passing a null argument to a constructor or method in any class or interface in this package
+will cause a NullPointerException to be thrown.
+
+Following are the important classes in Java.io package:
+
+FILE: 
+	The File class is Java’s representation of a file or directory path name.
+	Because file and directory names have different formats on different platforms, a simple string is not adequate to name them.
+	
+	A File object is created by passing in a String that represents the name of a file, or a String or another File object. For example,
+
+	File a = new File("/usr/local/bin/geeks");
+	defines an abstract file name for the geeks file in directory /usr/local/bin. This is an absolute abstract file name.
+	
+	Constructors 
+
+	File(File parent, String child) : Creates a new File instance from a parent abstract pathname and a child pathname string.
+	File(String pathname) : Creates a new File instance by converting the given pathname string into an abstract pathname.
+	File(String parent, String child) : Creates a new File instance from a parent pathname string and a child pathname string.
+	File(URI uri) : Creates a new File instance by converting the given file: URI into an abstract pathname.
+	
+	
+FILEINPUTSTREAM:
+	Java FileInputStream class obtains input bytes from a file. It is used for reading byte-oriented data (streams of raw bytes) such as image data, audio, video etc.
+	FileInputStream is useful to read data from a file in the form of sequence of bytes.
+	FileInputStream is meant for reading streams of raw bytes such as image data.
+	For reading streams of characters, consider using FileReader.
+	
+	Constructor and Description
+	
+	FileInputStream(File file) :Creates an input file stream to read from the specified File object.
+	FileInputStream(FileDescriptor fdobj) :Creates an input file stream to read from the specified file descriptor.
+	FileInputStream(String name) :Creates an input file stream to read from a file with the specified name.
+	
+	int read() : Reads a byte of data from this input stream.
+		Syntax: public int read() throws IOException
+		Returns: the next byte of data, or -1 if the end of the file is reached.
+	
+	int read(byte[] b) :Reads up to b.length bytes of data from this input stream into an array of bytes.
+		Syntax:	public int read(byte[] b)throws IOException
+		Parameters:
+					b - the buffer into which the data is read.
+					off - the start offset in the destination array b
+					len - the maximum number of bytes read.
+		Returns: the total number of bytes read into the buffer, or -1.
+		
+	long skip(long n) : Skips over and discards n bytes of data from the input stream.
+		Syntax:	public long skip(long n)	throws IOException
+		Parameters:
+					n - the number of bytes to be skipped.
+					Returns: the actual number of bytes skipped.
+	
+	int available() : Returns an estimate of the number of remaining bytes that can be read (or skipped over) from this input stream .
+		Syntax:	public int available()	throws IOException
+		Returns: an estimate of the number of remaining bytes that can be read.
+		
+	FileDescriptor getFD() :Returns the FileDescriptor object that represents the connection to the actual file in the file system being used by this FileInputStream.
+		Syntax : public final FileDescriptor getFD() throws IOException
+		Returns: the file descriptor object associated with this stream.
+
+	FileChannel getChannel() :Returns the unique FileChannel object associated with this file input stream.
+		Syntax : public FileChannel getChannel()
+		Returns: the file channel associated with this file input stream
+	
+	void close() : Closes this file input stream and releases any system resources associated with the stream.
+		Syntax:public void close() throws IOException
+		Specified by: close in interface AutoCloseable
+		Overrides: close in class InputStream
+
+FILEOUTPUTSTREAM: 
+	
+	Creating a file using FileOutputStream
+	
+	FileOutputStream class belongs to byte stream and stores the data in the form of individual bytes.
+	It can be used to create text files. A file represents storage of data on a second storage media like a hard disk or CD.
+	Whether or not a file is available or may be created depends upon the underlying platform.
+	
+	FileOutputStream is meant for writing streams of raw bytes such as image data. For writing streams of characters, consider using FileWriter.
+	
+	Important methods:
+
+	void close() :		 Closes this file output stream and releases any system resources associated with this stream.
+	
+	protected void finalize() : Cleans up the connection to the file, and ensures that the close method of this file output
+								stream is called when there are no more references to this stream.
+	
+	void write(byte[] b) : 		Writes b.length bytes from the specified byte array to this file output stream.
+	
+	void write(byte[] b, int off, int len) : Writes len bytes from the specified byte array starting at offset off to this file output stream.
+	
+	void write(int b) : Writes the specified byte to this file output stream.
+	
+	
+	Following steps are to be followed to create a text file that stores some characters (or text):
+
+	Reading data: First of all, data should be read from the keyboard. For this purpose, associate the keyboard to some input stream class.
+					The code for using DataInputSream class for reading data from the keyboard is as:
+						DataInputStream dis =new DataInputStream(System.in);
+					Here System.in represent the keyboard which is linked with DataInputStream object
+
+	Send data to OutputStream: Now , associate a file where the data is to be stored to some output stream.
+								For this , take the help of FileOutputStream which can send data to the file. Attaching the file.txt to FileOutputStream can be done as:
+									FileOutputStream fout=new FileOutputStream(“file.txt”);
+	
+	Reading data from DataInputStream: The next step is to read data from DataInputStream and write it into FileOutputStream .
+										It means read data from dis object and write it into fout object, as shown here:
+											ch=(char)dis.read();
+											fout.write(ch);
+											
+	Close the file: Finally, any file should be closed after performing input or output operations on it, else the data of the may be corrupted. 
+					Closing the file is done by closing the associated streams. 
+					For example, fout.close(): will close the FileOutputStream ,hence there is no way to write data into the file.
+					
+	

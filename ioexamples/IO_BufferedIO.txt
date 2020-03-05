@@ -1,0 +1,101 @@
+BUFFEREDINPUTSTREAM
+	A BufferedInputStream adds functionality to another input stream-namely, 
+	the ability to buffer the input and to support the mark and reset methods
+	 When the BufferedInputStream is created, an internal buffer array is created. As bytes from the stream are read or skipped,
+	 the internal buffer is refilled as necessary from the contained input stream, many bytes at a time.
+	 
+	Constructor and Description
+
+	BufferedInputStream(InputStream in) : Creates a BufferedInputStream and saves its argument, the input stream in, for later use.
+	
+	BufferedInputStream(InputStream in, int size) : Creates a BufferedInputStream with the specified buffer size, and saves its argument, the input stream in, for later use.
+	
+	int available() : Returns an estimate of the number of bytes that can be read (or skipped over) from this input stream without
+					  blocking by the next invocation of a method for this input stream.
+		Syntax:public int available() throws IOException
+		Returns:
+				an estimate of the number of bytes that can be read (or skipped over) from this input stream without blocking.
+				
+	void close() : Closes this input stream and releases any system resources associated with the stream.
+		Syntax:public void close() throws IOException
+		Overrides: close in class FilterInputStream
+		 
+	void mark(int readlimit) : Marks the current position in this input stream.
+		Syntax:public void mark(int readlimit)
+		Overrides:
+			mark in class FilterInputStream
+		Parameters:
+			readlimit - the maximum limit of bytes that can be read before the mark position becomes invalid.
+	
+	boolean markSupported() : Tests if this input stream supports the mark and reset methods.
+		Syntax:public boolean markSupported()
+		Overrides:
+			markSupported in class FilterInputStream
+		Returns:
+			a boolean indicating if this stream type supports the mark and reset methods.
+	
+	int read() : Reads the next byte of data from the input stream.
+		Syntax:public int read() throws IOException
+		Returns:
+			the next byte of data, or -1 if the end of the stream is reached.
+	
+	
+	int read(byte[] b, int off, int len) : Reads bytes from this byte-input stream into the specified byte array, starting at the given offset.
+		Syntax:public int read(byte[] b,int off,int len) throws IOException
+		Parameters:
+			b - destination buffer.
+			off - offset at which to start storing bytes.
+			len - maximum number of bytes to read.
+		Returns:
+			the number of bytes read, or -1 if the end of the stream has been reached.
+	
+	
+	void reset() : Repositions this stream to the position at the time the mark method was last called on this input stream.
+		Syntax:public void reset() throws IOException
+		Overrides:
+			reset in class FilterInputStream
+
+
+	long skip(long n) :Skips over and discards n bytes of data from this input stream
+		Syntax:public long skip(long n) throws IOException
+		Parameters:
+			n - the number of bytes to be skipped.
+		Returns:
+			the actual number of bytes skipped.
+			
+			
+			
+			
+BUFFEREDOUTPUTSTREAM
+
+	Java.io.BufferedOutputStream class implements a buffered output stream. 
+		By setting up such an output stream, an application can write bytes to the underlying output stream without necessarily causing a 
+		call to the underlying system for each byte written.
+
+	Fields
+		protected byte[] buf: The internal buffer where data is stored.
+		protected int count: The number of valid bytes in the buffer.
+	
+	Constructor and Description
+
+		BufferedOutputStream(OutputStream out) : Creates a new buffered output stream to write data to the specified underlying output stream.
+		BufferedOutputStream(OutputStream out, int size) : Creates a new buffered output stream to write data to 
+															the specified underlying output stream with the specified buffer size.
+	
+	Methods:
+		
+		void flush() : Flushes this buffered output stream.
+			Syntax :public void flush() throws IOException
+			Overrides: flush in class FilterOutputStream
+		
+		void write(byte[] b, int off, int len) : Writes len bytes from the specified byte array starting at offset off to this buffered output stream.
+			Syntax :
+			Parameters:
+				b - the data.
+				off - the start offset in the data.
+				len - the number of bytes to write.
+	
+		void write(int b) : Writes the specified byte to this buffered output stream.
+			Parameters:
+				b - the byte to be written.
+				
