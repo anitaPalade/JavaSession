@@ -1,0 +1,156 @@
+-----------------------------------------------------------MAP---------------------------------------------------------------------------------------------------------
+
+Map Interface in Java - The java.util.Map interface represents a mapping between a key and a value. The Map interface is not a subtype of the Collection interface. 
+                        Therefore it behaves a bit different from the rest of the collection types.
+
+Few characteristics of the Map Interface are:
+ 1)A Map cannot contain duplicate keys and each key can map to at most one value. Some implementations allow null key and null value like the HashMap and LinkedHashMap,
+   but some do not like the TreeMap.
+ 
+ 2)The order of a map depends on specific implementations, e.g TreeMap and LinkedHashMap have predictable order, while HashMap does not.
+ 
+ 3)There are two interfaces for implementing Map in java: Map and SortedMap, and three classes: HashMap, TreeMap and LinkedHashMap.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------HASHTABLE---------------------------------------------------------------------------------------------------------------
+
+Java Hashtable class - Java Hashtable class implements a hashtable, which maps keys to values. It inherits Dictionary class and implements the Map interface.
+
+Points to remember -
+ 1)A Hashtable is an array of a list. Each list is known as a bucket. The position of the bucket is identified by calling the hashcode() method. 
+   A Hashtable contains values based on the key.
+ 2)Java Hashtable class contains unique elements.
+ 3)Java Hashtable class doesn't allow null key or value.
+ 4)Java Hashtable class is synchronized.
+ 5)The initial default capacity of Hashtable class is 11 whereas loadFactor is 0.75.
+
+It gives most recent entry first on retrival. It cannot have duplicate keys but it can have duplicates as values.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------HASHMAP---------------------------------------------------------------------------------------------------------
+What is Java HashMap?
+Java HashMap is a Key-Value Pair implementation that implements Map interface and It works similar to Hash Table.
+
+Java HashMap Points to Remember ,Below points will describe what is Hash Map?
+
+1)Java HashMap is a Key-Value pair Java Map interface, which is used to store the Objects as values and 
+those objects should have Keys to identify them.
+
+2)it does not guarantee the Insertion Order of elements or items into Hash Map.
+
+3)Java HashMap cannot have duplicate keys but it can have duplicates as values.
+
+4)Hash Map can have only one NULL key and multiple NULL Values.
+
+5)The Order in which, We add the values to HashMap is not guaranteed, hence the Insertion order is not Preserved.
+
+6)Searching the Object is fast since the Java HashMap has the Keys.
+
+7)HashMap is not good for Multi-Threading because it does not support Synchronization.
+
+
+How to Create Java HashMap?
+To create a Java HashMap we need following Packages.
+		import java .util.HashMap
+		Import java.util.Map;
+
+ 
+In 2 ways, we can create HashMap.
+
+one way is to use Map interface.
+ 
+	Map<String, Integer> familyHashMap = new HashMap<>();
+ 
+2nd way is to use HashMap class.
+	HashMap<String, Integer> familyHashMap = new HashMap<>();
+
+
+HashMap Performance->
+
+Initial Capacity: It determines the Number of Hash Buckets that an Hash Map can actually have, Initial Capacity is determined 
+                  when we actually create the HashMap object, to Increase the HashMap Capacity, It is usually be multiplied by 2.
+
+Load Factor: HashMap LoadFactor determines the Loading rate at which, HashMap can load the items or the elements into hash map before 
+                  rehashing actually happens. It ranges between 0 and 1, mostly 0.75 is preferred.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------LINKEDHASHMAP---------------------------------------------------------------------------------------------------------
+ 
+LinkedHashMap in Java - LinkedHashMap is a Hash table and linked list implementation of the Map interface, with predictable iteration order. 
+                       This implementation differs from HashMap in that it maintains a doubly-linked list running through all of its entries.
+                       This linked list defines the iteration ordering, which is normally the order in which keys were inserted into the map (insertion-order). 
+
+
+Java LinkedHashMap class is Hashtable and Linked list implementation of the Map interface, with predictable iteration order.
+It inherits HashMap class and implements the Map interface.
+
+Points to remember - 
+ 1)Java LinkedHashMap contains values based on the key.
+ 2)Java LinkedHashMap contains unique elements.
+ 3)Java LinkedHashMap may have one null key and multiple null values.
+ 4)Java LinkedHashMap is non synchronized.
+ 5)Java LinkedHashMap maintains insertion order.
+ 6)The initial default capacity of Java HashMap class is 16 with a load factor of 0.75.
+ 
+
+Constructor-	          
+	1)LinkedHashMap()- It is used to construct a default LinkedHashMap.
+	2)LinkedHashMap(int capacity)-	It is used to initialize a LinkedHashMap with the given capacity.
+	3)LinkedHashMap(int capacity, float loadFactor)- It is used to initialize both the capacity and the load factor.
+	4)LinkedHashMap(int capacity, float loadFactor, boolean accessOrder)-	It is used to initialize both the capacity and the load factor 
+                                                                                with specified ordering mode.
+	5)LinkedHashMap(Map<? extends K,? extends V> m)- It is used to initialize the LinkedHashMap with the elements from the given Map class m.
+
+
+SortedMap Interface in Java - SortedMap is an interface in collection framework. This interface extends Map interface and provides a total ordering of its elements 
+                              (elements can be traversed in sorted order of keys). Exampled class that implements this interface is TreeMap.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------SORTEDMAP---------------------------------------------------------------------------------------------------------------
+
+The main characteristic of a SortedMap is that, it orders the keys by their natural ordering, or by a specified comparator. So consider using a TreeMap when you want 
+a map that satisfies the following criteria:
+
+ 1)null key or null value are not permitted.
+ 2)The keys are sorted either by natural ordering or by a specified comparator.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------TREEMAP---------------------------------------------------------------------------------------------------------------
+
+Java TreeMap class - Java TreeMap class is a red-black tree based implementation. It provides an efficient means of storing key-value pairs in sorted order.
+
+The important points about Java TreeMap class are:
+
+ 1)Java TreeMap contains values based on the key. It implements the NavigableMap interface and extends AbstractMap class.
+ 2)Java TreeMap contains only unique elements.
+ 3)Java TreeMap cannot have a null key but can have multiple null values.
+ 4)Java TreeMap is non synchronized.
+ 5)Java TreeMap maintains ascending order.
+
+Constructor - 	
+
+	1)TreeMap()- It is used to construct an empty tree map that will be sorted using the natural order of its key.
+	2)TreeMap(Comparator<? super K> comparator)- It is used to construct an empty tree-based map that will be sorted using the comparator comp.
+	3)TreeMap(Map<? extends K,? extends V> m)- It is used to initialize a treemap with the entries from m, which will be sorted using the natural order of the keys.
+	4)TreeMap(SortedMap<K,? extends V> m)	It is used to initialize a treemap with the entries from the SortedMap sm, which will be sorted in the same order as sm.
+
+   HashMap	                          TreeMap
+1) HashMap can contain one null key.	1)TreeMap cannot contain any null key.
+2) HashMap maintains no order.	        2)TreeMap maintains ascending order.
+
+
+
+NavigableMap Interface in Java - NavigableMap is an extension of SortedMap which provides convenient navigation method like lowerKey, floorKey, ceilingKey and 
+                                 higherKey, and along with these popular navigation method it also provide ways to create a Sub Map from existing Map in Java 
+                                 e.g. headMap whose keys are less than specified key, tailMap whose keys are greater than specified key and a subMap which is 
+                                 strictly contains keys which falls between toKey and fromKey.
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ HashMap allows one null key and multiple null values whereas Hashtable doesn’t allow any null key or value.
+
+
+
